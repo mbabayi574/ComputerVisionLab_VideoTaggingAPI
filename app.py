@@ -25,6 +25,9 @@ def validate_user(request_body):
     if request_body['role'] not in ["ADMIN", "ANNOTATOR", "REVIEWER"]:
         return 2
 
+    request_body['number_of_ongoing_projects'] = 0
+    request_body['number_of_completed_projects'] = 0
+
 
 @app.route('/Users/', methods=['POST'])
 def create_user():
